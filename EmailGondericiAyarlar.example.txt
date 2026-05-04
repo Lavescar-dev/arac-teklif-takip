@@ -1,0 +1,13 @@
+# Arac Bakim Takip ayarlari ornegi.
+# Bu dosyayi EmailGondericiAyarlar.txt olarak kopyalayin ve doldurun.
+# Veya .exe'yi --setup parametresiyle calistirin, sihirbaz olusturur.
+
+FILENAME: Arac Bakim Takibi.xlsx
+
+GMAILUSERNAME: ornek@gmail.com
+GMAILPASSWORD: BURAYA_GMAIL_APP_PASSWORD
+EMAILRECIPIENTS: ornek1@firma.com, ornek2@firma.com
+
+# CALC ve SET kurallari ornek (gercek kurallari sihirbaz korur):
+# CALC: D8 B13 E13 <=15
+# SET: C22 50

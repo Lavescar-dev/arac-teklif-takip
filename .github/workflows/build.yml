@@ -1,0 +1,77 @@
+name: Build Windows EXE
+
+on:
+  push:
+    branches: ["main", "master"]
+    tags: ["v*"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        shell: cmd
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Build AracTakip.exe
+        shell: cmd
+        run: |
+          pyinstaller ^
+            --noconfirm ^
+            --onefile ^
+            --console ^
+            --name AracTakip ^
+            --hidden-import openpyxl ^
+            --collect-submodules openpyxl ^
+            --hidden-import setup_wizard ^
+            EmailGonderici.py
+
+      - name: Build TeklifTakip.exe
+        shell: cmd
+        run: |
+          pyinstaller ^
+            --noconfirm ^
+            --onefile ^
+            --console ^
+            --name TeklifTakip ^
+            --hidden-import openpyxl ^
+            --collect-submodules openpyxl ^
+            --hidden-import setup_wizard ^
+            TeklifTakipEmailGonderici.py
+
+      - name: Stage release files
+        shell: cmd
+        run: |
+          mkdir release
+          copy dist\AracTakip.exe release\
+          copy dist\TeklifTakip.exe release\
+          copy EmailGondericiAyarlar.example.txt release\
+          copy TeklifTakipAyarlar.example.txt release\
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-exe
+          path: release/
+          if-no-files-found: error
+
+      - name: Create GitHub Release on tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release/*
+          generate_release_notes: true

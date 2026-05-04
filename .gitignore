@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+.env
+
+# PyInstaller build artifacts
+build/
+dist/
+*.spec
+
+# Logs
+*.log
+
+# Customer data — NEVER commit
+*.xlsx
+*.xlsm
+*.xls
+
+# Credentials / live config — NEVER commit
+EmailGondericiAyarlar.txt
+EmailGondericiAyarlar_DUZELTILMIS.txt
+TeklifTakipAyarlar.txt
+
+# Heavy / installer binaries
+*.exe
+*.zip
+python-3.9.1-amd64.exe
+Windows_*.zip
+
+# Pre-existing batch launchers (Python install dependent, obsolete with .exe)
+*.bat
+
+# Stale deployment packages (contain xlsx + credential txts)
+windows_paket/
+windows_paket_v2/
+windows_teklif_paket/
+windows_teklif_master_paket/
+
+# Misc local assets / images
+assets/
+
+# Operational docs (contain customer names, AnyDesk creds, old password fragments)
+AnyDesk_Checklist.md
+DEGISIKLIK_RAPORU.md
+SAHA_REHBERI.md
+TEKLIF_TAKIP_KURULUMU.md
+
+# Office lock files
+.~lock.*#
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

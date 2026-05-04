@@ -1,0 +1,30 @@
+# Teklif Takip ayarlari ornegi.
+# Bu dosyayi TeklifTakipAyarlar.txt olarak kopyalayin ve doldurun.
+# Veya .exe'yi --setup parametresiyle calistirin, sihirbaz olusturur.
+
+FILENAME: TeklifTakip_Master.xlsx
+SHEETNAME:
+
+SMTP_HOST: smtp.gmail.com
+SMTP_PORT: 465
+SMTP_USERNAME: ornek@gmail.com
+SMTP_PASSWORD: BURAYA_GMAIL_APP_PASSWORD
+
+COMMON_EMAIL: ortakmail@firma.com, ikinciortak@firma.com
+BOSS_EMAIL: patron1@firma.com, patron2@firma.com
+CC_EMAILS:
+
+REMINDER_COMMON_DAYS: 2
+REMINDER_BOSS_DAYS: 4
+
+DATE_COLUMN: TARIH
+STATUS_COLUMN: SON DURUMU
+COMPANY_COLUMN: SIRKET ADI
+CONTACT_COLUMN: ILGILI
+
+FLAG_COMMON_COLUMN: MAIL1
+FLAG_COMMON_AT_COLUMN:
+FLAG_BOSS_COLUMN: MAIL2
+FLAG_BOSS_AT_COLUMN:
+
+SUBJECT_PREFIX: [Teklif Takip]
